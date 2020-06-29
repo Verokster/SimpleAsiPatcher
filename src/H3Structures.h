@@ -49,6 +49,11 @@ struct H3CreatureInfo;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
 
+#define o_Market_Hero (*(H3Hero**)(hookSpace->globals.market.backpackIndexOfFirstSlot + 8))
+#define o_Market_BackpackIndexOfFirstSlot *(CHAR*)hookSpace->globals.market.backpackIndexOfFirstSlot
+#define o_Market_SelectedSlotIndex *(INT32*)(hookSpace->globals.market.backpackIndexOfFirstSlot + 32)
+#define o_Market_SelectedBackpackSlotIndex (o_Market_SelectedSlotIndex - 18)
+
 struct H3String {
 	BOOL _init; // useless
 	PCHAR str;
@@ -393,7 +398,7 @@ struct H3CombatMonster {
 	INT32 hex_index; // 0x38 position on battlefield
 	INT32 animation_group; // 0x3C
 	INT32 animation_frame; // 0x40
-	INT32 second_hex_shift; // 0x44 left or right
+	BOOL is_second_hex_right; // 0x44 left or right
 	INT8 unk2[4];
 	DWORD count_current; // 0x4C the number of creatures that are currently alive
 	DWORD count_before_attack; // 0x50
