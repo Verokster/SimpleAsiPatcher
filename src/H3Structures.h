@@ -49,9 +49,6 @@ struct H3CreatureInfo;
 struct H3CombatMonsterSpellsData;
 struct H3CombatMonster;
 
-//H3HeroClassProperties* o_H3HeroClassProperties;
-#define o_H3HeroClass (*(H3HeroClassProperties**)aH3HeroClass)
-
 struct H3String {
 	BOOL _init; // useless
 	PCHAR str;
